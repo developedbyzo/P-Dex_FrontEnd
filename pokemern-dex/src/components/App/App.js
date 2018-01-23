@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Header from '../Header/Header'
-// import Pokemon from '../Pokemon/Pokemon'
+import Pokemon from '../Pokemon/Pokemon'
 // import Bottom from '../Footer/Footer'
 // import './App.css';
 
@@ -12,7 +12,7 @@ class App extends Component {
           <Header />
         </header>
         <main>
-          {/* <Pokemon /> */}
+          <Pokemon />
         </main>
         <footer>
           {/* <Bottom /> */}
