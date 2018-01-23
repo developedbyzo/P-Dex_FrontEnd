@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
-// import getRequest from '../../request'
-import axios from 'axios'
-import { POKEMERN_URL } from '../../constant'
+import pokeRequest from '../../request'
 
 class Pokemon extends Component {
   constructor (props) {
@@ -12,22 +10,32 @@ class Pokemon extends Component {
   }
 
   componentDidMount () {
-    axios
-    .get(`${POKEMERN_URL}`)
-    .then(response => this.setState({pokemon: response.data}))
+    pokeRequest.then(response => this.setState({pokemon: response.data}))
     .catch(err => console.log(err))
   }
 
   render () {
-    let pokemon = this.state.pokemon.map((pokemon) => {
-      return (<img key={pokemon._id} className='responsive-img' src={pokemon.url} />)
+    let pokemon = this.state.pokemon.map((pokemon, index) => {
+      return (
+        <div className='row'>
+          <div className='col s12'>
+            <div className='row'>
+              <div className='card-panel hoverable center col s1'>
+                <img className='responsive-img' src={pokemon.url} />
+              </div>
+            </div>
+          </div>
+        </div>
+      )
     })
     return (
-      <div className='row'>
-        <div className='card-panel hoverable center col s1'>
-          {pokemon}
+      <div>
+        <div className='center'>
+          <input type='submit' value='Add' />
         </div>
+        {pokemon}
       </div>
+
     )
   }
 }
