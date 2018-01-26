@@ -17,23 +17,23 @@ class Pokemon extends Component {
   render () {
     let pokemon = this.state.pokemon.map((pokemon, index) => {
       return (
-        <div className='row'>
-          <div className='col s12'>
-            <div className='row'>
-              <div className='card-panel hoverable center col s1'>
-                <img className='responsive-img' src={pokemon.url} />
-              </div>
-            </div>
-          </div>
+        // <div className='container'>
+        //   <div className='row'>
+        //   <div className='col s12'>
+        <div key={index + 1} className='card-panel hoverable center col s1'>
+          <img className='responsive-img' src={pokemon.url} />
         </div>
+        //   </div>
+        // </div>
+        // </div>
       )
     })
     return (
-      <div>
-        <div className='center'>
-          <input type='submit' value='Add' />
+      <div className='center'>
+        <input type='submit' value='Add' />
+        <div className='row'>
+          {pokemon}
         </div>
-        {pokemon}
       </div>
 
     )
